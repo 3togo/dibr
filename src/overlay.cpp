@@ -15,14 +15,14 @@ unsigned int Overlay2DShaderID;
 
 void initOverlay2D() {
     glGenBuffers(1, &Overlay2DVertexBufferID);
-    Overlay2DShaderID = LoadShaders("overlay.vertexshader",
-                                    "overlay.fragmentshader");
+    Overlay2DShaderID = LoadShaders("gls/overlay.vertexshader",
+                                    "gls/overlay.fragmentshader");
 }
 
 void drawRectangle2D(int x, int y, int width, int height) {
     std::vector<glm::vec2> vertices;
     glm::vec2 vertex_up_left = glm::vec2(
-        x / (1024.0f / 2) - 1.0f, 
+        x / (1024.0f / 2) - 1.0f,
         (2.0f - 2*(y / 768.0f)) - 1.0f
     );
     glm::vec2 vertex_up_right = glm::vec2(
@@ -51,7 +51,7 @@ void drawRectangle2D(int x, int y, int width, int height) {
                  &vertices[0], GL_STATIC_DRAW);
 
     glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(Overlay2DShaderID);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, Overlay2DVertexBufferID);
