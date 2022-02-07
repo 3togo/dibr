@@ -130,6 +130,7 @@ int main( int argc, char** argv )
 
     // Print controls
     printf( "<> CONTROLS:\n\t" \
+            "esc\t - quit\n\t" \
             "WASD\t - camera movement\n\t" \
             "QE\t - zoom\n\t" \
             "X/C\t - delete selected / cancel selection \n\n");
